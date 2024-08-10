@@ -15,6 +15,15 @@
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
     {"name":"Sons","order":3,"path":"folders/Sons.yy",},
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
+    {"name":"Player","order":1,"path":"folders/Sprites/Player.yy",},
+    {"name":"PlayerIdle","order":1,"path":"folders/Sprites/Player/PlayerIdle.yy",},
   ],
-  "ResourceOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"Obj_forest","order":1,"path":"objects/Obj_forest/Obj_forest.yy",},
+    {"name":"Obj_tree","order":2,"path":"objects/Obj_tree/Obj_tree.yy",},
+    {"name":"Spr_forest","order":4,"path":"sprites/Spr_forest/Spr_forest.yy",},
+    {"name":"Spr_grama","order":2,"path":"sprites/Spr_grama/Spr_grama.yy",},
+    {"name":"Spr_hair_idle","order":1,"path":"sprites/Spr_hair_idle/Spr_hair_idle.yy",},
+    {"name":"Spr_tree","order":3,"path":"sprites/Spr_tree/Spr_tree.yy",},
+  ],
 }
