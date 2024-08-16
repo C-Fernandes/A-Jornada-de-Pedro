@@ -8,3 +8,4 @@ vveloc = 0;
 
 velocidade = 2;
 velocidade_running = 3;
+velocidade_direcao = -1;
