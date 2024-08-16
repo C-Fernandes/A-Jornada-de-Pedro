@@ -1,50 +1,76 @@
-var objects_collison = [Obj_forest, Obj_tree];
+
+// Definir variáveis
+var objects_collision = [Obj_forest, Obj_tree];
 var colisao_horizontal = false;
 var colisao_vertical = false;
+var running = keyboard_check(vk_shift);
+var direita = keyboard_check(ord("D"));
+var esquerda = keyboard_check(ord("A"));
+var cima = keyboard_check(ord("W"));
+var baixo = keyboard_check(ord("S"));
 
-direita = keyboard_check(ord("D"))
-esquerda = keyboard_check(ord("A"))
-cima = keyboard_check(ord("W"))
-baixo = keyboard_check(ord("S"))
+// Definir a velocidade com base no estado de corrida
+var velocidade_atual = running ? velocidade_running : velocidade;
+var hveloc = (direita - esquerda) * velocidade_atual;
+var vveloc = (baixo - cima) * velocidade_atual;
 
-hveloc = (direita - esquerda) * velocidade;
-vveloc = (baixo - cima) *velocidade;
-
-// Verifica colisão horizontal
-for (var i = 0; i < array_length(objects_collison); i++) {
-    if (place_meeting(x + hveloc, y, objects_collison[i])) {
+// Verificar colisão horizontal
+colisao_horizontal = false;
+for (var i = 0; i < array_length(objects_collision); i++) {
+    if (place_meeting(x + hveloc, y, objects_collision[i])) {
         colisao_horizontal = true;
         break; // Se encontrar colisão, saia do loop
     }
 }
 
 if (colisao_horizontal) {
-    while (!place_meeting(x + sign(hveloc), y, objects_collison[i])) {
-        x += sign(hveloc);
+    while (place_meeting(x + sign(hveloc), y, objects_collision[i])) {
+        x -= sign(hveloc);
     }
     hveloc = 0;
 }
 
-// Verifica colisão vertical
-for (var i = 0; i < array_length(objects_collison); i++) {
-    if (place_meeting(x, y + vveloc, objects_collison[i])) {
+// Verificar colisão vertical
+colisao_vertical = false;
+for (var i = 0; i < array_length(objects_collision); i++) {
+    if (place_meeting(x, y + vveloc, objects_collision[i])) {
         colisao_vertical = true;
         break; // Se encontrar colisão, saia do loop
     }
 }
 
 if (colisao_vertical) {
-    while (!place_meeting(x, y + sign(vveloc), objects_collison[i])) {
-        y += sign(vveloc);
+    while (place_meeting(x, y + sign(vveloc), objects_collision[i])) {
+        y -= sign(vveloc);
     }
-	
-	
     vveloc = 0;
 }
 
+// Atualizar a posição do personagem
+x += hveloc;
+y += vveloc;
 
+// Atualizar a velocidade da animação
+image_speed = running ? 1.7 : 1;
 
-
-
-x+= hveloc;
-y+= vveloc;
+// Definir o sprite com base na direção do movimento
+if (hveloc != 0) { // Movimento horizontal
+    sprite_index = (hveloc < 0) ? Spr_player_walking_esquerda : Spr_player_walking_direita;
+}
+else if (vveloc != 0) { // Movimento vertical
+    sprite_index = (vveloc < 0) ? Spr_player_walking_costas : Spr_player_walking;
+}
+else { // Quando o personagem está parado
+    if (sprite_index == Spr_player_walking_esquerda) {
+        sprite_index = Spr_player_esquerda; // Parado voltado para a esquerda
+    }
+    else if (sprite_index == Spr_player_walking_direita) {
+        sprite_index = Spr_player_direita; // Parado voltado para a direita
+    }
+    else if (sprite_index == Spr_player_walking_costas) {
+        sprite_index = Spr_player_costas; // Parado voltado para cima
+    }
+    else if (sprite_index == Spr_player_walking) {
+        sprite_index = Spr_player; // Parado voltado para a frente (padrão)
+    }
+}

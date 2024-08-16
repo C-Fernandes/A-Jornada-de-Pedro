@@ -7,3 +7,4 @@ hveloc = 0;
 vveloc = 0;
 
 velocidade = 2;
+velocidade_running = 3;
