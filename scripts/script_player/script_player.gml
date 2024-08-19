@@ -62,63 +62,48 @@ function scr_player_andando() {
 
     // Atualizar a velocidade da animação
     image_speed = running ? 1.7 : 1;
-    if (direita) {
-        dir = 0; // Direita
-    } else if (esquerda) {
-        dir = 2; // Esquerda
-    } else if (cima) {
-        dir = 1; // Cima (Costas)
-    } else if (baixo) {
-        dir = 3; // Baixo (Frente)
-    }
-
-    if (hveloc != 0) { // Movimento horizontal
-        sprite_index = (hveloc < 0) ? Spr_player_walking_esquerda : Spr_player_walking_direita;
-    } else if (vveloc != 0) { // Movimento vertical
-        sprite_index = (vveloc < 0) ? Spr_player_walking_costas : Spr_player_walking;
-    } else { // Quando o personagem está parado
-        if (sprite_index == Spr_player_walking_esquerda) {
-            sprite_index = Spr_player_esquerda; // Parado voltado para a esquerda
-        } else if (sprite_index == Spr_player_walking_direita) {
-            sprite_index = Spr_player_direita; // Parado voltado para a direita
-        } else if (sprite_index == Spr_player_walking_costas) {
-            sprite_index = Spr_player_costas; // Parado voltado para cima
-        } else if (sprite_index == Spr_player_walking) {
-            sprite_index = Spr_player; // Parado voltado para a frente (padrão)
-        }
-    }
-
+ 
+	 if (hveloc != 0) { // Movimento horizontal
+	    sprite_index = Spr_player_walking_lado;
+	    image_xscale = (hveloc < 0) ? -1 : 1; // Ajusta a direção do sprite
+	} else if (vveloc != 0) { // Movimento vertical
+	    sprite_index = (vveloc < 0) ? Spr_player_walking_costas : Spr_player_walking;
+	    image_xscale = 1; // Mantém o sprite voltado para frente
+	} else { // Quando o personagem está parado
+	    if (sprite_index == Spr_player_walking_lado || sprite_index == Spr_player_atack_lado) {
+	        sprite_index = Spr_player_lado; // Parado voltado para frente (padrão)
+	      image_xscale = (image_xscale < 0) ? -1 : 1;
+	    } else if (sprite_index == Spr_player_walking_costas || sprite_index == Spr_player_atack_costas) {
+	        sprite_index = Spr_player_costas; // Parado voltado para cima
+	    } else if (sprite_index == Spr_player_walking || sprite_index == Spr_player_atack) {
+	        sprite_index = Spr_player; // Parado voltado para frente (padrão)
+	    }
+	}
     // Definir a profundidade com base na posição Y
     depth = -y;
 
     // Verifica o clique do mouse para realizar o ataque, somente se não estiver atacando
     if (mouse_check_button_pressed(mb_left) && !atacar) {
-        image_index = 0;
-
-        // Atualizar a sprite de ataque com base na direção do personagem
-        if (sprite_index == Spr_player_direita) {
-            sprite_index = Spr_player_atack_direita;
-            image_xscale = 1; // Direção normal
-        } else if (sprite_index == Spr_player_esquerda) {
-            sprite_index = Spr_player_atack_direita; // Usa a mesma sprite, mas espelha horizontalmente
-            image_xscale = -1; 
-        } else if (sprite_index == Spr_player_costas) {
-
-            sprite_index = Spr_player_atack_costas;
-            image_xscale = 1; 
-        } else if (sprite_index == Spr_player) {
-		
-            sprite_index = Spr_player_atack;
-            image_xscale = 1; 
-        }
-state = scr_player_atack;
+    
+	state = scr_player_atack;
     }
 }
 
 function scr_player_atack() {
+	
+	// Atualizar a sprite de ataque com base na direção do personagem
+		if (sprite_index == Spr_player_lado || sprite_index == Spr_player_walking_lado) {
+		    sprite_index = Spr_player_atack_lado;
+		    image_xscale = (image_xscale < 0) ? -1 : 1; // Mantém a direção correta
+		} else if (sprite_index == Spr_player_costas || sprite_index == Spr_player_walking_costas) {
+		    sprite_index = Spr_player_atack_costas;
+		    image_xscale = 1; // Direção normal
+		} else if (sprite_index == Spr_player || sprite_index == Spr_player_walking) {
+		    sprite_index = Spr_player_atack;
+		    image_xscale = 1; // Direção normal
+		}
     if image_index >= 1 {
-        // Criar a hitbox de ataque na direção do personagem
-        var offset = 10; // Ajuste o valor conforme necessário
+        var offset = 10; 
         if (image_xscale == 1) { // Direita
             instance_create_layer(x + offset, y, "Instances", Obj_personagem_hitbox);
         } else if (image_xscale == -1) { // Esquerda
