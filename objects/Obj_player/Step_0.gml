@@ -80,3 +80,4 @@ if (hveloc != 0) { // Movimento horizontal
 
 // Definir a profundidade com base na posição Y
 depth = -y;
+script_execute(state);

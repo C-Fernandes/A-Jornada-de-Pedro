@@ -15,3 +15,8 @@ alarm[0] = 1;
 
 dist_atack = 100;
 dist_distancia = 150;
+
+vida = 5;
+empurrar_dir = 0;
+empurrar_veloc = 0;
+hit = false;

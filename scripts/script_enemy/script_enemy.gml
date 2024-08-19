@@ -74,6 +74,17 @@ function scr_enemy_andando() {
 		x=dest_x;
 		y=dest_y;
 	}
+	
+if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
+    dir = 2; // Esquerda
+} else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
+    dir = 0; // Direita
+} else if (keyboard_check(vk_up) || keyboard_check(ord("W"))) {
+    dir = 1; // Cima (Costas)
+} else if (keyboard_check(vk_down) || keyboard_check(ord("S"))) {
+    dir = 3; // Baixo (Frente)
+}
+
 }
 
 // Função para quando o inimigo está parado (não faz nada)
@@ -111,6 +122,16 @@ function scr_enemy_perseguindo() {
 	alarm[0] = irandom_range(120,240);
 	}
 }
+
+function scr_enemy_hit(){
+	empurrar_veloc = lerp(empurrar_veloc, 0, 0.2)
+	
+	hveloc = lengthdir_x(empurrar_veloc, empurrar_dir);
+	vveloc = lengthdir_y(empurrar_veloc, empurrar_dir);
+	
+	scr_enemy_colision()
+}
+
 
 
 
