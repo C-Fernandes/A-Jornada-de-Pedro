@@ -1,8 +1,6 @@
 function scr_player_andando() {
     // Definir variáveis
-    var objects_collision = [Obj_forest, Obj_tree];
-    var colisao_horizontal = false;
-    var colisao_vertical = false;
+   
     var running = keyboard_check(vk_shift);
     var direita = keyboard_check(ord("D"));
     var esquerda = keyboard_check(ord("A"));
@@ -10,9 +8,9 @@ function scr_player_andando() {
     var baixo = keyboard_check(ord("S"));
 
     // Definir a velocidade com base no estado de corrida
-    var hveloc = (direita - esquerda);
-    var vveloc = (baixo - cima);
-
+    hveloc = (direita - esquerda);
+    vveloc = (baixo - cima);
+	
     var velocidade_direcao = point_direction(x, y, x + hveloc, y + vveloc);
 
     if (hveloc != 0 || vveloc != 0) {
@@ -20,10 +18,44 @@ function scr_player_andando() {
     } else {
         velocidade_atual = 0;
     }
-
+	
     hveloc = lengthdir_x(velocidade_atual, velocidade_direcao);
     vveloc = lengthdir_y(velocidade_atual, velocidade_direcao);
+	scr_player_colisao();
+    // Atualizar a velocidade da animação
+    image_speed = running ? 1.7 : 1;
+ 
+	 if (hveloc != 0) { // Movimento horizontal
+	    sprite_index = Spr_player_walking_lado;
+	    image_xscale = (hveloc < 0) ? -1 : 1; // Ajusta a direção do sprite
+	} else if (vveloc != 0) { // Movimento vertical
+	    sprite_index = (vveloc < 0) ? Spr_player_walking_costas : Spr_player_walking;
+	    image_xscale = 1; // Mantém o sprite voltado para frente
+	} else { // Quando o personagem está parado
+	    if (sprite_index == Spr_player_walking_lado || sprite_index == Spr_player_atack_lado) {
+	        sprite_index = Spr_player_lado; // Parado voltado para frente (padrão)
+	      image_xscale = (image_xscale < 0) ? -1 : 1;
+	    } else if (sprite_index == Spr_player_walking_costas || sprite_index == Spr_player_atack_costas) {
+	        sprite_index = Spr_player_costas; // Parado voltado para cima
+	    } else if (sprite_index == Spr_player_walking || sprite_index == Spr_player_atack) {
+	        sprite_index = Spr_player; // Parado voltado para frente (padrão)
+	    }
+	}
+    // Definir a profundidade com base na posição Y
+    depth = -y;
 
+    // Verifica o clique do mouse para realizar o ataque, somente se não estiver atacando
+    if (mouse_check_button_pressed(mb_left) && !atacar) {
+    
+	state = scr_player_atack;
+    }
+}
+
+function scr_player_colisao(){
+	
+	var objects_collision = [Obj_forest, Obj_tree];
+    var colisao_horizontal = false;
+    var colisao_vertical = false;
     // Verificar colisão horizontal
     colisao_horizontal = false;
     for (var i = 0; i < array_length(objects_collision); i++) {
@@ -59,34 +91,6 @@ function scr_player_andando() {
     // Atualizar a posição do personagem
     x += hveloc;
     y += vveloc;
-
-    // Atualizar a velocidade da animação
-    image_speed = running ? 1.7 : 1;
- 
-	 if (hveloc != 0) { // Movimento horizontal
-	    sprite_index = Spr_player_walking_lado;
-	    image_xscale = (hveloc < 0) ? -1 : 1; // Ajusta a direção do sprite
-	} else if (vveloc != 0) { // Movimento vertical
-	    sprite_index = (vveloc < 0) ? Spr_player_walking_costas : Spr_player_walking;
-	    image_xscale = 1; // Mantém o sprite voltado para frente
-	} else { // Quando o personagem está parado
-	    if (sprite_index == Spr_player_walking_lado || sprite_index == Spr_player_atack_lado) {
-	        sprite_index = Spr_player_lado; // Parado voltado para frente (padrão)
-	      image_xscale = (image_xscale < 0) ? -1 : 1;
-	    } else if (sprite_index == Spr_player_walking_costas || sprite_index == Spr_player_atack_costas) {
-	        sprite_index = Spr_player_costas; // Parado voltado para cima
-	    } else if (sprite_index == Spr_player_walking || sprite_index == Spr_player_atack) {
-	        sprite_index = Spr_player; // Parado voltado para frente (padrão)
-	    }
-	}
-    // Definir a profundidade com base na posição Y
-    depth = -y;
-
-    // Verifica o clique do mouse para realizar o ataque, somente se não estiver atacando
-    if (mouse_check_button_pressed(mb_left) && !atacar) {
-    
-	state = scr_player_atack;
-    }
 }
 
 function scr_player_atack() {
@@ -122,4 +126,16 @@ function scr_player_atack() {
 		state = scr_player_andando;
         atacar = false; 
     }
+}
+
+function scr_player_hit(){
+	if alarm[1] > 0 {
+	
+		hveloc = lengthdir_x(15, empurrar_dir);
+		vveloc = lengthdir_y(15, empurrar_dir);
+	
+		scr_player_colisao();
+	} else {
+		state = scr_player_andando;
+	}
 }

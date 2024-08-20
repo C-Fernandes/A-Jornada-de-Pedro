@@ -6,7 +6,7 @@ next_state = 0;
 hveloc = 0;
 vveloc = 0;
 velocidade = 1;
-velocidade_perseg = 2;
+velocidade_perseg = 1.7;
 
 dest_x = 0;
 dest_y = 0;
