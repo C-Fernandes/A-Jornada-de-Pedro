@@ -1,13 +1,13 @@
 // Função para escolher o próximo estado do inimigo
 function scr_enemy_escolher_estado() {
+	image_speed = 1;
 	scr_enemy_checar_personagem();
     // Escolher entre andar ou parar
-    var next_state = choose(scr_enemy_andando, scr_enemy_parado);
+    var next_state = choose(scr_enemy_andando,scr_enemy_parado);
     
     // Verificar o próximo estado e ajustar o comportamento
     if (next_state == scr_enemy_andando) {
         state = scr_enemy_andando;
-        // Definir destino aleatório dentro da sala
         dest_x = irandom_range(0, room_width);
         dest_y = irandom_range(0, room_height);
     } else if (next_state == scr_enemy_parado) {
@@ -33,6 +33,8 @@ function scr_enemy_colision() {
             x -= sign(hveloc);
         }
         hveloc = 0;
+		   dest_x = irandom_range(0, room_width);
+        
     }
 
     // Verificar colisão vertical
@@ -49,6 +51,7 @@ function scr_enemy_colision() {
             y -= sign(vveloc);
         }
         vveloc = 0;
+		dest_y = irandom_range(0, room_height);
     }
 	y+=vveloc;
 	x+=hveloc;
@@ -59,33 +62,23 @@ function scr_enemy_andando() {
 	scr_enemy_checar_personagem();
     // Calcular a direção para o destino
 	
-	
-	if distance_to_point(dest_x, dest_y) >velocidade{
-    var _dir = point_direction(x, y, dest_x, dest_y);
+	if distance_to_point(dest_x, dest_y) > velocidade{
+	    var _dir = point_direction(x, y, dest_x, dest_y);
     
-    // Calcular a velocidade horizontal e vertical com base na direção
-    var hveloc = lengthdir_x(velocidade, _dir);
-    var vveloc = lengthdir_y(velocidade, _dir);
+	    // Calcular a velocidade horizontal e vertical com base na direção
+		 hveloc = lengthdir_x(velocidade, _dir);
+	     vveloc = lengthdir_y(velocidade, _dir);
     
-    // Verificar colisões e mover o inimigo
-    scr_enemy_colision();
-
-    }else{
+	    // Verificar colisões e mover o inimigo
+	    scr_enemy_colision();
+    } else {
 		x=dest_x;
 		y=dest_y;
 	}
-	
-if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
-    dir = 2; // Esquerda
-} else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
-    dir = 0; // Direita
-} else if (keyboard_check(vk_up) || keyboard_check(ord("W"))) {
-    dir = 1; // Cima (Costas)
-} else if (keyboard_check(vk_down) || keyboard_check(ord("S"))) {
-    dir = 3; // Baixo (Frente)
-}
 
 }
+
+
 
 // Função para quando o inimigo está parado (não faz nada)
 function scr_enemy_parado() {
@@ -104,6 +97,7 @@ function scr_enemy_checar_personagem() {
 
 // Função para o inimigo perseguir o personagem
 function scr_enemy_perseguindo() {
+	image_speed = 2;
     dest_y = Obj_player.y;
     dest_x = Obj_player.x;
 
@@ -118,8 +112,9 @@ function scr_enemy_perseguindo() {
     scr_enemy_colision();
 	
 	if distance_to_object(Obj_player) >= dist_distancia{
-	state = scr_enemy_escolher_estado;
-	alarm[0] = irandom_range(120,240);
+		state = scr_enemy_escolher_estado;
+		alarm[0] = irandom_range(120,240);
+		image_speed = 1;
 	}
 }
 

@@ -5,7 +5,7 @@ next_state = 0;
 
 hveloc = 0;
 vveloc = 0;
-velocidade = 1.5;
+velocidade = 1;
 velocidade_perseg = 2;
 
 dest_x = 0;

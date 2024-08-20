@@ -41,11 +41,9 @@
     {"name":"Spr_player_walking_lado","order":2,"path":"sprites/Spr_player_walking_lado/Spr_player_walking_lado.yy",},
     {"name":"Spr_skeleton_costas","order":1,"path":"sprites/Spr_skeleton_costas/Spr_skeleton_costas.yy",},
     {"name":"Spr_skeleton_die","order":6,"path":"sprites/Spr_skeleton_die/Spr_skeleton_die.yy",},
-    {"name":"Spr_skeleton_direita","order":2,"path":"sprites/Spr_skeleton_direita/Spr_skeleton_direita.yy",},
-    {"name":"Spr_skeleton_esquerda","order":3,"path":"sprites/Spr_skeleton_esquerda/Spr_skeleton_esquerda.yy",},
+    {"name":"Spr_skeleton_lado","order":2,"path":"sprites/Spr_skeleton_lado/Spr_skeleton_lado.yy",},
     {"name":"Spr_skeleton_walking_costas","order":2,"path":"sprites/Spr_skeleton_walking_costas/Spr_skeleton_walking_costas.yy",},
-    {"name":"Spr_skeleton_walking_direita","order":1,"path":"sprites/Spr_skeleton_walking_direita/Spr_skeleton_walking_direita.yy",},
-    {"name":"Spr_skeleton_walking_esquerda","order":4,"path":"sprites/Spr_skeleton_walking_esquerda/Spr_skeleton_walking_esquerda.yy",},
+    {"name":"Spr_skeleton_walking_lado","order":1,"path":"sprites/Spr_skeleton_walking_lado/Spr_skeleton_walking_lado.yy",},
     {"name":"Spr_tree","order":2,"path":"sprites/Spr_tree/Spr_tree.yy",},
   ],
 }
