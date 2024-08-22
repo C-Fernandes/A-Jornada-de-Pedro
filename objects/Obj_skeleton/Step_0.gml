@@ -2,6 +2,10 @@ script_execute(state);
 
 depth = -y;
 
+if vida<=0{
+	instance_destroy();
+}
+
 if (hveloc != 0 or vveloc != 0) { // Movimento horizontal
 	
    if(abs(hveloc) > abs(vveloc)){ 
