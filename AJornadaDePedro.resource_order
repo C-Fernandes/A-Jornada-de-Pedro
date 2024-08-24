@@ -28,8 +28,10 @@
     {"name":"Obj_colision","order":1,"path":"objects/Obj_colision/Obj_colision.yy",},
     {"name":"Obj_controle","order":5,"path":"objects/Obj_controle/Obj_controle.yy",},
     {"name":"Obj_dano","order":8,"path":"objects/Obj_dano/Obj_dano.yy",},
+    {"name":"Obj_inimigos","order":10,"path":"objects/Obj_inimigos/Obj_inimigos.yy",},
     {"name":"Obj_personagem_hitbox","order":4,"path":"objects/Obj_personagem_hitbox/Obj_personagem_hitbox.yy",},
     {"name":"Obj_skeleton","order":3,"path":"objects/Obj_skeleton/Obj_skeleton.yy",},
+    {"name":"Obj_slime","order":11,"path":"objects/Obj_slime/Obj_slime.yy",},
     {"name":"Obj_tree","order":2,"path":"objects/Obj_tree/Obj_tree.yy",},
     {"name":"ObjTeste","order":7,"path":"objects/ObjTeste/ObjTeste.yy",},
     {"name":"functions","order":2,"path":"scripts/functions/functions.yy",},
@@ -63,6 +65,7 @@
     {"name":"Spr_skeleton_lado","order":2,"path":"sprites/Spr_skeleton_lado/Spr_skeleton_lado.yy",},
     {"name":"Spr_skeleton_walking_costas","order":2,"path":"sprites/Spr_skeleton_walking_costas/Spr_skeleton_walking_costas.yy",},
     {"name":"Spr_skeleton_walking_lado","order":1,"path":"sprites/Spr_skeleton_walking_lado/Spr_skeleton_walking_lado.yy",},
+    {"name":"Spr_slime","order":7,"path":"sprites/Spr_slime/Spr_slime.yy",},
     {"name":"Spr_tree","order":2,"path":"sprites/Spr_tree/Spr_tree.yy",},
   ],
 }

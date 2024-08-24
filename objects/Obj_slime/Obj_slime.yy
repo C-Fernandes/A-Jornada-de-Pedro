@@ -1,9 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_skeleton",
-  "eventList":[],
+  "%Name":"Obj_slime",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"Obj_skeleton",
+  "name":"Obj_slime",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -31,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_skeleton",
-    "path":"sprites/Spr_skeleton/Spr_skeleton.yy",
+    "name":"Spr_slime",
+    "path":"sprites/Spr_slime/Spr_slime.yy",
   },
   "spriteMaskId":null,
   "visible":true,
