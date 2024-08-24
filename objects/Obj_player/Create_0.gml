@@ -10,6 +10,8 @@ dir = 0;
 velocidade = 2;
 velocidade_running = 3;
 velocidade_direcao = -1;
+max_estamina = 100;
+estamina = max_estamina;
 max_vida = 20;
 vida = max_vida;
 //talvez nn seja necessário

@@ -53,7 +53,7 @@ function scr_player_andando() {
 
 function scr_player_colisao(){
 	
-	var objects_collision = [Obj_forest, Obj_tree];
+	var objects_collision = [Obj_colision, Obj_tree];
     var colisao_horizontal = false;
     var colisao_vertical = false;
     // Verificar colisão horizontal

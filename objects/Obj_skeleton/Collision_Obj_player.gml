@@ -11,4 +11,8 @@ if other.tomar_dano == true{
 	tomar_dano = false;
 	vida -= 1;
 	}
+    var _inst = instance_create_layer(x, y, "Instances", Obj_dano);
+
+	_inst.alvo = other;
+	_inst.dano = 1;
 }

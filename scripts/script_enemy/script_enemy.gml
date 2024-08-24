@@ -17,7 +17,7 @@ function scr_enemy_escolher_estado() {
 
 // Função para verificar colisões
 function scr_enemy_colision() {
-    var objects_collision = [Obj_forest, Obj_tree]; 
+    var objects_collision = [Obj_colision, Obj_tree]; 
     
     // Verificar colisão horizontal
     colisao_horizontal = false;
