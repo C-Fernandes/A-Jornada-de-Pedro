@@ -119,6 +119,7 @@ function scr_enemy_perseguindo() {
 }
 
 function scr_enemy_hit(){
+	alarm[2] = 180;
 	empurrar_veloc = lerp(empurrar_veloc, 0, 0.2)
 	
 	hveloc = lengthdir_x(empurrar_veloc, empurrar_dir);
