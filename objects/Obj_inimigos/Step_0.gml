@@ -3,6 +3,7 @@ script_execute(state);
 depth = -y;
 
 if vida<=0{
+	Obj_player.xp +=50;
 	instance_destroy();
 }
 
