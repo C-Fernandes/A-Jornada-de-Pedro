@@ -41,7 +41,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.2.162",
+    "IDEVersion":"2024.6.1.160",
   },
   "name":"AJornadaDePedro",
   "resources":[
@@ -50,7 +50,7 @@
     {"id":{"name":"Obj_controle","path":"objects/Obj_controle/Obj_controle.yy",},},
     {"id":{"name":"Obj_dano","path":"objects/Obj_dano/Obj_dano.yy",},},
     {"id":{"name":"Obj_inimigos","path":"objects/Obj_inimigos/Obj_inimigos.yy",},},
-    {"id":{"name":"Obj_menu","path":"objects/Obj_menu/Obj_menu.yy",},},
+    {"id":{"name":"Obj_inventario","path":"objects/Obj_inventario/Obj_inventario.yy",},},
     {"id":{"name":"Obj_personagem_hitbox","path":"objects/Obj_personagem_hitbox/Obj_personagem_hitbox.yy",},},
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
     {"id":{"name":"Obj_skeleton","path":"objects/Obj_skeleton/Obj_skeleton.yy",},},
