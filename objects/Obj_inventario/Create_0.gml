@@ -46,5 +46,5 @@ grid_itens[# Infos.Item, 2] = Itens.Chave2;
 grid_itens[# Infos.Quantidade, 2] = 2;
 
 //Quarto Slot:
-grid_itens[# Infos.Item, 3] = Itens.Maca;
-grid_itens[# Infos.Quantidade, 3] = 5;
+grid_itens[# Infos.Item, 5] = Itens.Maca;
+grid_itens[# Infos.Quantidade, 5] = 5;

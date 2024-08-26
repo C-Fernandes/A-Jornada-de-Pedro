@@ -4,8 +4,6 @@ var _guia = display_get_gui_height();
 var _mx = device_mouse_x_to_gui(0);
 var _my = device_mouse_y_to_gui(0);
 
-var sprites_itens = [Spr_anel, Spr_chave1, Spr_chave2, Spr_maca_verde];
-
 if(inventario == true){
 	var _invx = _guil/2 - inventario_l/2;
 	var _invy = _guia/2 - inventario_a/2
@@ -41,14 +39,26 @@ if(inventario == true){
 					}
 					
 					//Caso já tenha um item:
-					
+					else if grid_itens[# Infos.Item, pos_selecionada] != grid_itens[# Infos.Item, i]{
+						var _item = grid_itens[# Infos.Item, i];
+						var _quantidade = grid_itens[# Infos.Quantidade, i];
+						
+						grid_itens[# Infos.Item, i] = grid_itens[# Infos.Item, pos_selecionada];
+						grid_itens[# Infos.Quantidade, i] = grid_itens[# Infos.Quantidade, pos_selecionada];
+						
+						grid_itens[# Infos.Item, pos_selecionada] = _item;
+						grid_itens[# Infos.Quantidade, pos_selecionada] = _quantidade;
+						
+						item_selecionado = -1;
+						pos_selecionada = -1;
+					}
 				}
 			}
 			
 		}
 		
 		if grid_itens[# Infos.Item, i] != -1{
-			draw_sprite_ext(sprites_itens[i], grid_itens[# 0, i], _slotsx, _slotsy, escala, escala, 0, c_white, 1);
+			draw_sprite_ext(Spr_itens, grid_itens[# 0, i], _slotsx, _slotsy, escala, escala, 0, c_white, 1);
 		
 			draw_set_font(fnt_inventario);
 			draw_set_halign(fa_center);
@@ -62,7 +72,13 @@ if(inventario == true){
 		}
 	}
 	
+	//Largar item selecionado
+	if mouse_check_button(mb_right){
+		item_selecionado = -1;
+		pos_selecionada = -1;
+	}
+	
 	if item_selecionado != -1 {
-		draw_sprite_ext(sprites_itens[item_selecionado], item_selecionado, _mx, _my, escala, escala, 0, c_white, 0.5);
+		draw_sprite_ext(Spr_itens, item_selecionado, _mx, _my, escala, escala, 0, c_white, 0.5);
 	}
 }
