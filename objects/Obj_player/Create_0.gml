@@ -50,4 +50,5 @@ atacar = false;
 state = scr_player_andando;
 
 
-dano_alpla = -1;
+dano_alpla =-1;
+

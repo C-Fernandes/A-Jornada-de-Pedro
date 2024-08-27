@@ -28,7 +28,7 @@
   ],
   "name":"Spr_player_costas",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"Idle",
     "path":"folders/Sprites/Player/Idle.yy",
@@ -96,7 +96,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":32,
-    "yorigin":49,
+    "yorigin":61,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
