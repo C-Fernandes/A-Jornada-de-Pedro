@@ -62,7 +62,7 @@ function scr_player_andando() {
 
 function scr_player_colisao(){
 	
-	var objects_collision = [Obj_colision, Obj_tree, Obj_tree_2];
+	 var objects_collision = [Obj_colision, Obj_tree, Obj_tree_2, Obj_estatua, Obj_lapide, Obj_lapide_2, Obj_lapide_3, Obj_pocoQuebrado];
     var colisao_horizontal = false;
     var colisao_vertical = false;
     // Verificar colisão horizontal
@@ -116,7 +116,7 @@ function scr_player_atack() {
 		    image_xscale = 1; // Direção normal
 		}
     if image_index >= 1 {
-        var offset = 10; 
+        var offset = 30; 
         if (image_xscale == 1) { // Direita
             instance_create_layer(x + offset, y, "Instances", Obj_personagem_hitbox);
         } else if (image_xscale == -1) { // Esquerda
