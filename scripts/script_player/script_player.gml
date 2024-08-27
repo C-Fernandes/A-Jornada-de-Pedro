@@ -18,7 +18,16 @@ function scr_player_andando() {
     } else {
         velocidade_atual = 0;
     }
-	
+	  // Diminuir estamina enquanto estiver correndo
+    if (running && (hveloc != 0 || vveloc != 0)) {
+      estamina -= 0.1; // Ajuste o valor para o ritmo de diminuição
+        if (estamina <= 0) {
+          estamina = 0; // Limitar a estamina a 0
+            running = false; // Forçar o personagem a parar de correr
+        }
+    }if (!running && estamina < max_estamina[level]) {
+    estamina += 0.01; // Regeneração da estamina fora da corrida
+}
     hveloc = lengthdir_x(velocidade_atual, velocidade_direcao);
     vveloc = lengthdir_y(velocidade_atual, velocidade_direcao);
 	scr_player_colisao();
@@ -119,7 +128,12 @@ function scr_player_atack() {
         }
         atacar = true; // Marcar o ataque como finalizado após a hitbox ser criada
     }
-
+ if (estamina > 0) {
+        estamina -= 0.1; // Ajuste o valor conforme necessário
+        if (estamina < 0) {
+            estamina = 0; // Garante que a estamina não seja negativa
+        }
+    }
     
     // Verificar o fim da animação de ataque
     if fim_da_animacao(){
