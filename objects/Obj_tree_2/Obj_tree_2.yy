@@ -1,9 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"ObjTeste",
-  "eventList":[],
+  "%Name":"Obj_tree_2",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"ObjTeste",
+  "name":"Obj_tree_2",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -28,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_forest",
-    "path":"sprites/Spr_forest/Spr_forest.yy",
+    "name":"Spr_tree_2",
+    "path":"sprites/Spr_tree_2/Spr_tree_2.yy",
   },
   "spriteMaskId":null,
   "visible":true,
