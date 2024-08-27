@@ -26,12 +26,17 @@ enum Itens{
 
 enum Infos{
 	Item,
+	Sprite,
 	Quantidade,
 	Altura
 }
 
 grid_itens = ds_grid_create(Infos.Altura, total_slots);
 ds_grid_set_region(grid_itens, 0, 0, 1, total_slots -1, -1);
+
+ds_grid_add_item(Itens.Anel, 1, Spr_itens);
+ds_grid_add_item(Itens.Chave1, 5, Spr_itens);
+ds_grid_add_item(Itens.Chave2, 10, Spr_itens);
 
 //Primeiro Slot:
 grid_itens[# Infos.Item, 0] = Itens.Anel;

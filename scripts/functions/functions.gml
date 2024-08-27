@@ -27,3 +27,16 @@ function draw_text_color_outline(){
 	
 	draw_text_ext(argument0, argument1, argument2, argument6, argument7);
 }
+
+function ds_grid_add_item(){
+	var _grid = Obj_inventario.grid_itens;
+	var _checagem =0;
+	 while _grid[# Infos.Item, _checagem] != -1{
+		 _checagem++;
+	 }
+	 
+	 _grid[# 0, _checagem] = argument[0];
+	 _grid[# 1, _checagem] = argument[1];
+	 _grid[# 2, _checagem] = argument[2];
+	 
+}

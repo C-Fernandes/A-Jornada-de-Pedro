@@ -9,3 +9,15 @@ if xp >= max_estamina[level]{
 	vida = max_vida[level];
 	estamina = max_estamina[level];
 }
+
+if instance_exists(Obj_item) and Obj_inventario.inventario == false{
+	var _inst = instance_nearest(x,y, Obj_item);
+	
+	if distance_to_point(_inst.x, _inst.y)<= 20{
+		if keyboard_check_pressed(ord("F")){
+			ds_grid_add_item(_inst.image_index, _inst.quantidade, _inst.sprite_index);
+			
+			instance_destroy(_inst);
+		}
+	}
+}

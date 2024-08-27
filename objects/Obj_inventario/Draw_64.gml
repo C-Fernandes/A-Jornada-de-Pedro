@@ -13,12 +13,35 @@ if(inventario == true){
 	var iy = 0;
 	
 	for (var i = 0; i< total_slots; i++){
-		var _slotsx = _invx + comeco_x + ((tamanho_slot + buffer) * ix);
+		
+		
+var _slotsx = _invx + comeco_x + ((tamanho_slot + buffer) * ix);
 		var _slotsy = _invy + comeco_y + ((tamanho_slot + buffer) * iy);
 		
 		if point_in_rectangle(_mx, _my, _slotsx, _slotsy, _slotsx + tamanho_slot, _slotsy +tamanho_slot){
 			draw_sprite_ext(Spr_inventario_seletor, 0, _slotsx, _slotsy, escala, escala, 0, c_white, 1);
 			
+if keyboard_check_pressed(ord("F")) and grid_itens[# Infos.Item, i] != -1{
+    // Create an instance of the item on the ground
+    var _inst = instance_create_layer(Obj_player.x, Obj_player.y, "Instances", Obj_item);
+
+    // Get the item type and sprite index from the grid
+    var item_type = grid_itens[# Infos.Item, i];
+    var item_sprite_index = grid_itens[# Infos.Sprite, i];
+
+    // Assign the sprite and image index based on the item type
+    _inst.sprite_index = item_sprite_index;
+    _inst.image_index = item_type;  // This assumes image_index corresponds to item type
+
+    // Assign quantity
+    _inst.quantidade = grid_itens[# Infos.Quantidade, i];
+
+    // Remove the item from the inventory
+    grid_itens[# Infos.Item, i] = -1;
+    grid_itens[# Infos.Quantidade, i] = -1;
+    grid_itens[# Infos.Sprite, i] = -1;
+}
+
 			if mouse_check_button_pressed(mb_left){
 				//Caso nenhum item selecionado
 				if item_selecionado == -1{
