@@ -37,6 +37,5 @@ function ds_grid_add_item(){
 	 
 	 _grid[# 0, _checagem] = argument[0];
 	 _grid[# 1, _checagem] = argument[1];
-	 _grid[# 2, _checagem] = argument[2];
 	 
 }

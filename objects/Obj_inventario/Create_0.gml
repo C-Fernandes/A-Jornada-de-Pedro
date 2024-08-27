@@ -21,12 +21,14 @@ enum Itens{
 	Chave1,
 	Chave2,
 	Maca,
+	Vela,
+	Papel,
+	Erva,
 	Altura
 }
 
 enum Infos{
 	Item,
-	Sprite,
 	Quantidade,
 	Altura
 }
@@ -34,22 +36,8 @@ enum Infos{
 grid_itens = ds_grid_create(Infos.Altura, total_slots);
 ds_grid_set_region(grid_itens, 0, 0, 1, total_slots -1, -1);
 
-ds_grid_add_item(Itens.Anel, 1, Spr_itens);
-ds_grid_add_item(Itens.Chave1, 5, Spr_itens);
-ds_grid_add_item(Itens.Chave2, 10, Spr_itens);
-
-//Primeiro Slot:
-grid_itens[# Infos.Item, 0] = Itens.Anel;
-grid_itens[# Infos.Quantidade, 0] = 1;
-
-//Segundo Slot:
-grid_itens[# Infos.Item, 1] = Itens.Chave1;
-grid_itens[# Infos.Quantidade, 1] = 3;
-
-//Terceiro Slot:
-grid_itens[# Infos.Item, 2] = Itens.Chave2;
-grid_itens[# Infos.Quantidade, 2] = 2;
-
-//Quarto Slot:
-grid_itens[# Infos.Item, 5] = Itens.Maca;
-grid_itens[# Infos.Quantidade, 5] = 5;
+ds_grid_add_item(Itens.Anel, 1);
+ds_grid_add_item(Itens.Chave1, 3);
+ds_grid_add_item(Itens.Chave2, 2);
+ds_grid_add_item(Itens.Maca, 8);
+ds_grid_add_item(Itens.Vela, 2)
