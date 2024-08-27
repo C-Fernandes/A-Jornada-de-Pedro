@@ -32,6 +32,13 @@ if(inventario == true){
 				grid_itens[# Infos.Item, i] = -1;
 				grid_itens[# Infos.Quantidade, i] = -1;
 			}
+			
+			if keyboard_check_pressed(ord("R")){
+				if grid_itens[# Infos.Item, i] == Itens.Maca {
+					Obj_player.vida = min(Obj_player.vida + 1, Obj_player.max_vida[Obj_player.level]);
+					grid_itens[# Infos.Quantidade, i]--;
+				}
+			}
 
 			if mouse_check_button_pressed(mb_left){
 				//Caso nenhum item selecionado
