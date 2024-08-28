@@ -1,5 +1,6 @@
 // Função para escolher o próximo estado do inimigo
 function scr_enemy_escolher_estado() {
+	  
 	image_speed = 1;
 	scr_enemy_checar_personagem();
     // Escolher entre andar ou parar
@@ -17,8 +18,7 @@ function scr_enemy_escolher_estado() {
 
 // Função para verificar colisões
 function scr_enemy_colision() {
-   var objects_collision = [Obj_colision_enemy,Obj_colision, Obj_tree, Obj_tree_2, Obj_estatua, Obj_lapide, Obj_lapide_2, Obj_lapide_3, Obj_pocoQuebrado];
-    
+  
     // Verificar colisão horizontal
     colisao_horizontal = false;
     for (var i = 0; i < array_length(objects_collision); i++) {
@@ -33,8 +33,9 @@ function scr_enemy_colision() {
             x -= sign(hveloc);
         }
         hveloc = 0;
-		  	dest_y = irandom_range(0, room_height); dest_x = irandom_range(0, room_width);
-        
+		state = scr_enemy_andando;
+		 dest_x = irandom_range(0, room_width);
+		dest_y = irandom_range(0, room_height);
     }
 
     // Verificar colisão vertical
@@ -51,7 +52,9 @@ function scr_enemy_colision() {
             y -= sign(vveloc);
         }
         vveloc = 0;
-		dest_y = irandom_range(0, room_height); dest_x = irandom_range(0, room_width);
+		state = scr_enemy_andando;
+		 dest_x = irandom_range(0, room_width);
+		dest_y = irandom_range(0, room_height);
     }
 	y+=vveloc;
 	x+=hveloc;
@@ -91,8 +94,14 @@ function scr_enemy_parado() {
 // Função para checar a proximidade do personagem
 function scr_enemy_checar_personagem() {
     if (distance_to_object(Obj_player) <= dist_atack) {
+		objects_collision = [Obj_colision, Obj_tree, Obj_tree_2, Obj_estatua, Obj_lapide, Obj_lapide_2, Obj_lapide_3, Obj_pocoQuebrado];
+   
         state = scr_enemy_perseguindo;
     }
+	else{
+	objects_collision = [Obj_colision_enemy, Obj_colision, Obj_tree, Obj_tree_2, Obj_estatua, Obj_lapide, Obj_lapide_2, Obj_lapide_3, Obj_pocoQuebrado];
+   
+	}
 }
 
 // Função para o inimigo perseguir o personagem
@@ -109,8 +118,11 @@ function scr_enemy_perseguindo() {
     vveloc = lengthdir_y(velocidade_perseg, _dir);
 
     // Verificar colisões e mover o inimig
-	scr_enemy_colision();
-    if(scr_enemy_colision()){	state = scr_enemy_escolher_estado;
+	
+	
+	
+	if(scr_enemy_colision()){	state = scr_enemy_escolher_estado;alarm[0] = irandom_range(120,240);
+		image_speed = 1;
 	}
 	
 	if distance_to_object(Obj_player) >= dist_distancia{
