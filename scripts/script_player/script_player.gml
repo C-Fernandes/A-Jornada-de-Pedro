@@ -20,7 +20,7 @@ function scr_player_andando() {
     }
 	  // Diminuir estamina enquanto estiver correndo
     if (running && (hveloc != 0 || vveloc != 0)) {
-      estamina -= 0.05; // Ajuste o valor para o ritmo de diminuição
+      estamina -= 0.1; // Ajuste o valor para o ritmo de diminuição
         if (estamina <= 0) {
           estamina = 0; // Limitar a estamina a 0
             running = false; // Forçar o personagem a parar de correr
