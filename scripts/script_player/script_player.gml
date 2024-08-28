@@ -52,9 +52,8 @@ function scr_player_andando() {
 	}
     // Definir a profundidade com base na posição Y
     depth = -y;
-
     // Verifica o clique do mouse para realizar o ataque, somente se não estiver atacando
-    if (mouse_check_button_pressed(mb_left) && !atacar) {
+    if (mouse_check_button_pressed(mb_left) ) {
    
 	state = scr_player_atack;
     }
@@ -126,7 +125,7 @@ function scr_player_atack() {
         } else if (sprite_index == Spr_player_atack) { // Baixo
             instance_create_layer(x, y + offset, "Instances", Obj_personagem_hitbox);
         }
-        atacar = true; // Marcar o ataque como finalizado após a hitbox ser criada
+       // Marcar o ataque como finalizado após a hitbox ser criada
     }
  if (estamina > 0) {
         estamina -= 0.1; // Ajuste o valor conforme necessário
@@ -138,7 +137,7 @@ function scr_player_atack() {
     // Verificar o fim da animação de ataque
     if fim_da_animacao(){
 		state = scr_player_andando;
-        atacar = false; 
+   
     }
 }
 
