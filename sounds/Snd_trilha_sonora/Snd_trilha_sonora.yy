@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"Snd_trilha_sonora",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":151.09224,
+  "name":"Snd_trilha_sonora",
+  "parent":{
+    "name":"Sons",
+    "path":"folders/Sons.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Snd_trilha_sonora.mp3",
+  "type":0,
+  "volume":1.0,
+}

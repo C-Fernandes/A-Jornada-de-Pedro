@@ -34,9 +34,12 @@ if(inventario == true){
 			}
 			
 			if keyboard_check_pressed(ord("R")){
-				if grid_itens[# Infos.Item, i] == Itens.Maca {
-					Obj_player.vida = min(Obj_player.vida + 1, Obj_player.max_vida[Obj_player.level]);
+				if grid_itens[# Infos.Item, i] == Itens.Maca && grid_itens[# Infos.Quantidade, i] > 0 {
+					Obj_player.vida = min(Obj_player.vida + 3, Obj_player.max_vida[Obj_player.level]);
 					grid_itens[# Infos.Quantidade, i]--;
+					if(grid_itens[# Infos.Item, i] == 0){
+						instance_destroy();
+					}
 				}
 			}
 
