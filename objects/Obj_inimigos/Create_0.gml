@@ -13,8 +13,8 @@ dest_y = 0;
 
 alarm[0] = 1;
 
-dist_atack = 100;
-dist_distancia = 150;
+dist_atack = 200;
+dist_distancia = 250;
 
 max_vida =5;
 vida = max_vida;
