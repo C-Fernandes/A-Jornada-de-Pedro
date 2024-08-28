@@ -8,7 +8,6 @@ if xp >= max_estamina[level]  {
 	
 	if level < 4 {
 	level += 1;
-	vida = max_vida[level];
 	estamina = max_estamina[level];
 }}
 
