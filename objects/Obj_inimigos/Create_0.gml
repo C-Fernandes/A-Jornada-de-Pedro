@@ -16,6 +16,7 @@ alarm[0] = 1;
 dist_atack = 200;
 dist_distancia = 250;
 
+
 max_vida =5;
 vida = max_vida;
 empurrar_dir = 0;

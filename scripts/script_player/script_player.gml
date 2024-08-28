@@ -1,16 +1,16 @@
 function scr_player_andando() {
     // Definir variáveis
-   
+  
     var running = keyboard_check(vk_shift);
     var direita = keyboard_check(ord("D"));
     var esquerda = keyboard_check(ord("A"));
     var cima = keyboard_check(ord("W"));
     var baixo = keyboard_check(ord("S"));
-
+ if(!ataque){
     // Definir a velocidade com base no estado de corrida
     hveloc = (direita - esquerda);
     vveloc = (baixo - cima);
-	
+  
     var velocidade_direcao = point_direction(x, y, x + hveloc, y + vveloc);
 
     if (hveloc != 0 || vveloc != 0) {
@@ -56,7 +56,7 @@ function scr_player_andando() {
     if (mouse_check_button_pressed(mb_left) ) {
    
 	state = scr_player_atack;
-    }
+    } }
 }
 
 function scr_player_colisao(){
@@ -125,7 +125,7 @@ function scr_player_atack() {
         } else if (sprite_index == Spr_player_atack) { // Baixo
             instance_create_layer(x, y + offset, "Instances", Obj_personagem_hitbox);
         }
-       // Marcar o ataque como finalizado após a hitbox ser criada
+      atacar = true;   // Marcar o ataque como finalizado após a hitbox ser criada
     }
  if (estamina > 0) {
         estamina -= 0.1; // Ajuste o valor conforme necessário
@@ -136,6 +136,7 @@ function scr_player_atack() {
     
     // Verificar o fim da animação de ataque
     if fim_da_animacao(){
+		ataque = false;
 		state = scr_player_andando;
    
     }

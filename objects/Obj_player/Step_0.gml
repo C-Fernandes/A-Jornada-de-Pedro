@@ -1,14 +1,16 @@
 
 script_execute(state);
 
-if xp >= max_estamina[level] and level <=5 {
+
+if xp >= max_estamina[level]  {
 	
 	xp = xp - max_xp[level];
+	if level < 4 {
 	level += 1;
 	
 	vida = max_vida[level];
 	estamina = max_estamina[level];
-}
+}}
 
 if instance_exists(Obj_item) and Obj_inventario.inventario == false{
 	var _inst = instance_nearest(x,y, Obj_item);
