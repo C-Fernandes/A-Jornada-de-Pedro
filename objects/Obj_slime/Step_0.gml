@@ -17,9 +17,7 @@ if (hveloc != 0 or vveloc != 0) { // Movimento horizontal
     // Parado voltado para a esquerda
     if (sprite_index == Spr_slime_walking_lado) {
         sprite_index = Spr_slime_walking_lado; // Parado voltado para a direita
-    } else if (sprite_index == Spr_slime_walking_lado) {
-		image_xscale = 1;
-        sprite_index = Spr_skeleton_costas; // Parado voltado para cima
+    
     } else if (sprite_index == Spr_slime_walking_lado) {
 		image_xscale = 1;
         sprite_index = Spr_slime_walking_lado; // Parado voltado para frente (padrão)

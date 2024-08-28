@@ -31,6 +31,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"fnt_inventario","order":1,"path":"fonts/fnt_inventario/fnt_inventario.yy",},
+    {"name":"Obj_colision_enemy","order":16,"path":"objects/Obj_colision_enemy/Obj_colision_enemy.yy",},
     {"name":"Obj_colision","order":1,"path":"objects/Obj_colision/Obj_colision.yy",},
     {"name":"Obj_controle","order":5,"path":"objects/Obj_controle/Obj_controle.yy",},
     {"name":"Obj_controles","order":1,"path":"objects/Obj_controles/Obj_controles.yy",},
@@ -55,6 +56,7 @@
     {"name":"Spr_casinha_2","order":11,"path":"sprites/Spr_casinha_2/Spr_casinha_2.yy",},
     {"name":"Spr_casinha","order":9,"path":"sprites/Spr_casinha/Spr_casinha.yy",},
     {"name":"Spr_circle","order":12,"path":"sprites/Spr_circle/Spr_circle.yy",},
+    {"name":"Spr_colision_enemy","order":23,"path":"sprites/Spr_colision_enemy/Spr_colision_enemy.yy",},
     {"name":"Spr_colision","order":1,"path":"sprites/Spr_colision/Spr_colision.yy",},
     {"name":"Spr_controles","order":2,"path":"sprites/Spr_controles/Spr_controles.yy",},
     {"name":"Spr_estatua","order":19,"path":"sprites/Spr_estatua/Spr_estatua.yy",},

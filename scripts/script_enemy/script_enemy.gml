@@ -17,7 +17,7 @@ function scr_enemy_escolher_estado() {
 
 // Função para verificar colisões
 function scr_enemy_colision() {
-   var objects_collision = [Obj_colision, Obj_tree, Obj_tree_2, Obj_estatua, Obj_lapide, Obj_lapide_2, Obj_lapide_3, Obj_pocoQuebrado];
+   var objects_collision = [Obj_colision_enemy,Obj_colision, Obj_tree, Obj_tree_2, Obj_estatua, Obj_lapide, Obj_lapide_2, Obj_lapide_3, Obj_pocoQuebrado];
     
     // Verificar colisão horizontal
     colisao_horizontal = false;
@@ -33,7 +33,7 @@ function scr_enemy_colision() {
             x -= sign(hveloc);
         }
         hveloc = 0;
-		   dest_x = irandom_range(0, room_width);
+		  	dest_y = irandom_range(0, room_height); dest_x = irandom_range(0, room_width);
         
     }
 
@@ -51,7 +51,7 @@ function scr_enemy_colision() {
             y -= sign(vveloc);
         }
         vveloc = 0;
-		dest_y = irandom_range(0, room_height);
+		dest_y = irandom_range(0, room_height); dest_x = irandom_range(0, room_width);
     }
 	y+=vveloc;
 	x+=hveloc;
@@ -108,8 +108,10 @@ function scr_enemy_perseguindo() {
     hveloc = lengthdir_x(velocidade_perseg, _dir);
     vveloc = lengthdir_y(velocidade_perseg, _dir);
 
-    // Verificar colisões e mover o inimigo
-    scr_enemy_colision();
+    // Verificar colisões e mover o inimig
+	scr_enemy_colision();
+    if(scr_enemy_colision()){	state = scr_enemy_escolher_estado;
+	}
 	
 	if distance_to_object(Obj_player) >= dist_distancia{
 		state = scr_enemy_escolher_estado;

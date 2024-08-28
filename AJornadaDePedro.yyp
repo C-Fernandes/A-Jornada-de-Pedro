@@ -50,6 +50,7 @@
   "resources":[
     {"id":{"name":"fnt_dano","path":"fonts/fnt_dano/fnt_dano.yy",},},
     {"id":{"name":"fnt_inventario","path":"fonts/fnt_inventario/fnt_inventario.yy",},},
+    {"id":{"name":"Obj_colision_enemy","path":"objects/Obj_colision_enemy/Obj_colision_enemy.yy",},},
     {"id":{"name":"Obj_colision","path":"objects/Obj_colision/Obj_colision.yy",},},
     {"id":{"name":"Obj_controle","path":"objects/Obj_controle/Obj_controle.yy",},},
     {"id":{"name":"Obj_controles","path":"objects/Obj_controles/Obj_controles.yy",},},
@@ -80,6 +81,7 @@
     {"id":{"name":"Spr_casinha_2","path":"sprites/Spr_casinha_2/Spr_casinha_2.yy",},},
     {"id":{"name":"Spr_casinha","path":"sprites/Spr_casinha/Spr_casinha.yy",},},
     {"id":{"name":"Spr_circle","path":"sprites/Spr_circle/Spr_circle.yy",},},
+    {"id":{"name":"Spr_colision_enemy","path":"sprites/Spr_colision_enemy/Spr_colision_enemy.yy",},},
     {"id":{"name":"Spr_colision","path":"sprites/Spr_colision/Spr_colision.yy",},},
     {"id":{"name":"Spr_controles","path":"sprites/Spr_controles/Spr_controles.yy",},},
     {"id":{"name":"Spr_estatua","path":"sprites/Spr_estatua/Spr_estatua.yy",},},
